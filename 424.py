@@ -10,5 +10,17 @@ DayNums = {'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5
 fin = open("input.txt", "r")
 fout = open("output.txt", "w")
 
+a,b,c = map(int,input().split())
+k = []
+l = 1
+for i in range(1,13):
+    c = []
+    if i in [1,3,5,7,8,10,12]:
+        day = 32
+        for i in range(1,32):
+            c.append('0')
+    k.append(c)
+print(k)
+
 fin.close()
 fout.close()
