@@ -21,6 +21,7 @@ for i in range(1,13):
             c.append('0')
     k.append(c)
 print(k)
+#create list of lists where we should add days
 
 fin.close()
 fout.close()
