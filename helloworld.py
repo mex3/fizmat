@@ -1,3 +1,1 @@
-print ("Hello world!")
-print ('')
-print("TEXT")
+print("че читаешь? иди пиши код")
