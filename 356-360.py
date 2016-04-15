@@ -52,4 +52,6 @@ m = []
 for i in b:
     n = ' '.join(i)
     m.append(n)
+for i in m:
+    i = int()
 print(max(m))
