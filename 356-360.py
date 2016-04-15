@@ -55,7 +55,8 @@ for i in b:
 for i in m:
     i = int()
 u = m.index(max(m))
-if u - 2 
+m = u-2//3
+print(m)
 
 #359 почти сделано
 a = int(input())#number of athlets
