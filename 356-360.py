@@ -40,7 +40,7 @@ max2 = a[max1].index(max0)
 print(max1, max2)
 
 
-№358
+№358 пытался
 a = int(input())#number of athlets
 c = []
 while a > 0:
@@ -57,7 +57,7 @@ for i in m:
 u = m.index(max(m))
 if u - 2 
 
-#359
+#359 почти сделано
 a = int(input())#number of athlets
 c = []
 while a > 0:
