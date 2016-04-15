@@ -21,5 +21,16 @@ if IsPrime(a):
 else:
   print("NO")
 
+#def IsPrime(n): 
+    i = 2 
+    while n % i != 0: 
+        i = i + 1 
+    if i == n: 
+        return 'YES' 
+    else: 
+        return 'NO' 
+  
+print(IsPrime(int(input()))) 
+
 
 
