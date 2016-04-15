@@ -1,4 +1,4 @@
-
+#Проходит 72 из 100, остальные-ошибка.
 import math
 def dele(n,de):
   if n%de==0:
