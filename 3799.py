@@ -26,7 +26,7 @@ else:
     while n % i != 0: 
         i = i + 1 
     if i == n: 
-        return 'YES' 
+        return 'YES'#Тут нет рекурсии)) 
     else: 
         return 'NO' 
   
