@@ -41,5 +41,15 @@ print(max1, max2)
 
 
 №358
-
-
+a = int(input())#number of athlets
+c = []
+while a > 0:
+    a-=1
+    b = map(str, input().split())
+    c.append(b)
+print(b)#print list of imposed data
+m = []
+for i in b:
+    n = ' '.join(i)
+    m.append(n)
+print(max(m))
