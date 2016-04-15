@@ -54,4 +54,5 @@ for i in b:
     m.append(n)
 for i in m:
     i = int()
-print(max(m))
+u = m.index(max(m))
+if u - 2 
