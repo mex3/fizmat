@@ -33,4 +33,11 @@ else:
 print(IsPrime(int(input()))) 
 
 
-
+#another solution
+a = int(input())
+def IsPrime(a):
+  for i in range(2,a-1):
+    if a%i:
+      return false
+    else:
+      return true
