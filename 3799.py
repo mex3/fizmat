@@ -28,7 +28,7 @@ else:
     if i == n: 
         return 'YES'#Тут нет рекурсии)) 
     else: 
-        return 'NO' 
+        return 'NO' #обидно(((
   
 print(IsPrime(int(input()))) 
 
