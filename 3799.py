@@ -38,6 +38,7 @@ a = int(input())
 def IsPrime(a):
   for i in range(2,a-1):
     if a%i:
-      return false
+      print('NO')
     else:
-      return true
+      print('YES')
+IsPrime(a)
