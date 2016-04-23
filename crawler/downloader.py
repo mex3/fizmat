@@ -1,4 +1,7 @@
-#Читает ссылку из файла linklist.txt
-#Скачивает документ по ссылке в папку downloaded
+#Г—ГЁГІГ ГҐГІ Г±Г±Г»Г«ГЄГі ГЁГ§ ГґГ Г©Г«Г  linklist.txt
+#Г‘ГЄГ Г·ГЁГўГ ГҐГІ Г¤Г®ГЄГіГ¬ГҐГ­ГІ ГЇГ® Г±Г±Г»Г«ГЄГҐ Гў ГЇГ ГЇГЄГі downloaded
 #http://stackoverflow.com/questions/450285/executing-command-line-programs-from-within-python
-#На выбор: http://stackoverflow.com/questions/450285/executing-command-line-programs-from-within-python
+#ГЌГ  ГўГ»ГЎГ®Г°: http://stackoverflow.com/questions/450285/executing-command-line-programs-from-within-python
+
+import os*
+os.system("C:/'Users'/'Name'/'Downloads'/curl.exe")
