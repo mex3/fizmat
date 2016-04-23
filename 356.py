@@ -1,4 +1,4 @@
-#¹356
+#356
 
 n, m = input().split()
 n = int(n)
