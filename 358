@@ -1,16 +1,17 @@
-a = int(input())#number of athlets
-c = []
-while a > 0:
-    a-=1
-    b = map(str, input().split())
-    c.append(b)
-print(b)#print list of imposed data
-m = []
-for i in b:
-    n = ' '.join(i)
-    m.append(n)
-for i in m:
-    i = int()
-u = m.index(max(m))
-m = u-2//3
-print(m)
+n, m = map(int, input().split())
+mr, mn, mm, ms = 0, 0, 0, 0
+for i in range(n):
+    s = list(map(int, input().split()))
+    for x in range(m):
+        if s[x] == mr:
+            if sum(s) > ms:
+                mr = s[x]
+                mn = i
+                mm = x
+                ms = sum(s)
+        if s[x] > mr:
+            mr = s[x]
+            mn = i
+            mm = x
+            ms = sum(s)
+print(mn)
