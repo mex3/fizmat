@@ -4,4 +4,4 @@
 #Íà âûáîð: http://stackoverflow.com/questions/450285/executing-command-line-programs-from-within-python
 
 import os*
-os.system("C:/'Users'/'Name'/'Downloads'/curl.exe")
+os.system("C:/'Users'/'Name'/'Downloads'/curl.exe")#start cURL executable
