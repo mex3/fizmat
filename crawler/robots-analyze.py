@@ -11,7 +11,7 @@ def remove_string(filename, string):
         fd.write('\n'.join(rst))
         fd.write('\n')
 
-f = open('linksraw.txt', 'r')#не умеет скачивать robots.txt
+f = open('linksraw.txt', 'r')#не умеет скачивать robots.txt!
 d = open('linkslist.txt', 'a')
 x = open('robots.txt')
 for paths in x:
