@@ -1,3 +1,6 @@
+import sys
+reload(sys)
+sys.setdefaultencoding('ANSI')
 import subprocess
 f=open("linkslist.txt", "r")
 for x in f:
