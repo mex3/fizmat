@@ -11,7 +11,7 @@ def remove_string(filename, string):
         fd.write('\n'.join(rst))
         fd.write('\n')
 import subprocess
-subprocess.call(["C:\curl\curl.exe",'https://ru.wikipedia.org/robots.txt', '-o', 'robots.txt' ], shell=True)
+subprocess.call(["C:\curl\curl.exe",'http://informatics.mccme.ru/robots.txt', '-o', 'robots.txt' ], shell=True)
 f = open('linksraw.txt', 'r')
 d = open('linkslist.txt', 'a')
 x = open('robots.txt')
