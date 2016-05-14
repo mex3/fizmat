@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: ANSI -*- 
 import subprocess
 f=open("linkslist.txt", "r")
 for x in f:
