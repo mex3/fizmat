@@ -1,18 +1,24 @@
 from random import *
 from tkinter import *
 
-size = 600
+size = 1200
 root = Tk()
 canvas = Canvas(root, width=size, height=size)
 canvas.pack()
 
 while True:
-    colors = choicecolors = choice(['aqua', 'blue', 'fuchsia', 'green', 'maroon', 'orange','pink', 'purple', 'red','yellow', 'violet', 'indigo', 'chartreuse', 'lime'])
+    colors1 = choicecolors = choice(["#5CACEE", '#1E90FF', '#6495ED', '#4876FF', '#87CEFA', '#97FFFF'])
     x0 = randint(-size/10, size)
     y0 = randint(-size/10, size)
     d = randint(0, size/5)
-    canvas.create_oval(x0, y0, x0+d, y0+d, fill=colors )
+    
+    a=randint(-size/30, size)
+    b=randint(-size/30, size)
+    c=randint(-size/30, size)
+    g=randint(-size/30, size)
+    e=randint(-size/30, size)
+    k=randint(-size/30, size) 
+    colors2 = choicecolors = choice(["#7FFFD4", '#4EEE94', '#9AFF9A', '#00EE76', '#32CD32'])
+    canvas.create_oval(x0, y0, x0+d, y0+d, fill=colors1, outline="#6495ED" )
+    canvas.create_line (a, b, c, g, e, k, a, b, width='0.00000005', fill=colors2, activefill='#8A2BE2', activewidth='20')
     root.update()
-    
-    
-# неплохой код нашел в инете), покидайте еще цветов в список, кому не влом)
