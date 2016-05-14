@@ -10,8 +10,9 @@ def remove_string(filename, string):
     with open(filename, 'w') as fd:
         fd.write('\n'.join(rst))
         fd.write('\n')
-
-f = open('linksraw.txt', 'r')#не умеет скачивать robots.txt
+import subprocess
+subprocess.call(["C:\curl\curl.exe",'https://ru.wikipedia.org/robots.txt', '-o', 'robots.txt' ], shell=True)
+f = open('linksraw.txt', 'r')
 d = open('linkslist.txt', 'a')
 x = open('robots.txt')
 for paths in x:
@@ -20,7 +21,6 @@ for paths in x:
         paths = ''.join(paths.split(':')[1:])
         for links in f:
             if paths in links:
-                print(links)
                 remove_string('linksraw.txt',links)
 f.close()
 f = open('linksraw.txt', 'r')
