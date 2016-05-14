@@ -1,8 +1,5 @@
-#×èòàåò ññûëêó èç ôàéëà linklist.txt
-#Ñêà÷èâàåò äîêóìåíò ïî ññûëêå â ïàïêó downloaded
-#http://stackoverflow.com/questions/450285/executing-command-line-programs-from-within-python
-#Íà âûáîð: http://stackoverflow.com/questions/450285/executing-command-line-programs-from-within-python
-
-import os*
-os.system("C:/'Users'/'Name'/'Downloads'/curl.exe")#start cURL executable
-9087778
+import subprocess
+f=open("linkslist.txt", "r")
+for x in f:
+    subprocess.call(["C:\Users\mihalev_n\Documents\cURL\curl.exe", x, '-o', "file_#1.txt"],shell= True)#start cURL executable
+f.close()
