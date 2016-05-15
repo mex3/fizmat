@@ -1,0 +1,198 @@
+from tkinter import *
+from math import sqrt
+from random import randint
+from time import sleep, time
+
+#СЂР°Р·РјРµСЂС‹ РѕРєРЅР°
+HEIGHT = 500
+WIDTH = 800
+
+#СЃРєРѕСЂРѕСЃС‚СЊ РёРіСЂРѕРєРѕРІ
+PL_SPD = 20
+
+#СЂР°Р·РјРµСЂС‹ РёРіСЂРѕРєРѕРІ, РјСЏС‡Р°
+r1 = 20
+r2 = 20
+r3 = 10
+
+#РІСЂРµРјСЏ РёРіСЂС‹
+TIME_LIMIT = 120
+
+window = Tk()
+window.title('Р¤СѓС‚Р±РѕР»')
+c = Canvas (window, width = WIDTH, height = HEIGHT, bg = 'darkgreen')
+c.pack()
+
+# СЃРѕР·РґР°РµРј РёРіСЂРѕРєРѕРІ, РјСЏС‡, РІРѕСЂРѕС‚Р°
+line1 = c.create_oval (-100, 150, 100, 350, outline='white')
+line2 = c.create_oval (700, 150, 900, 350, outline='white')
+line3 = c.create_oval ( 300, 150, 500, 350, outline='white')
+line4 = c.create_line (400, 0, 400, 500, fill='white')
+pl1 = c.create_oval (180, 230, 220, 270, fill='red')
+pl2 = c.create_oval (580, 230, 620, 270, fill='blue')
+ball = c.create_oval (390, 240, 410, 260, fill='black')
+var1 = c.create_rectangle (0, 200, 10, 300, fill='white')
+var2 = c.create_rectangle (790, 200, 800, 300, fill='white')
+
+#c.move (pl1, 50, 50)
+#c.move (pl2, 50, 50)
+#c.move (ball, 100, 150)
+#c.move (var1, 0, 250)
+#c.move (var2, 800, 250)
+
+score = 0
+end = time() + TIME_LIMIT
+    
+c.create_text (350, 60, text ='TIME', fill='black')
+c.create_text (150, 60, text = 'SCORE_1', fill='white')
+c.create_text (650, 60, text = 'SCORE_2', fill='white')
+
+time_text = c.create_text (350, 100, fill='black')
+score_text_1 = c.create_text (150, 100, fill='white')
+score_text_2 = c.create_text (650, 100, fill='white')
+
+window.update()
+#sleep(1)
+#key = c.create_text (50, 50, text = '', fill='white')
+
+def move_players(event) :
+    #c.itemconfig (key, text = event.keycode)
+    #window.update()
+    
+    if event.keysym == 'Up' :
+        c.move (pl2, 0, -PL_SPD)
+    elif event.keysym == 'Down' :
+        c.move (pl2, 0, PL_SPD)
+    elif event.keysym == 'Left' :
+        c.move (pl2, -PL_SPD, 0)    
+    elif event.keysym == 'Right' :
+        c.move (pl2, PL_SPD, 0) 
+        
+    if event.keycode == 87 :
+        c.move (pl1, 0, -PL_SPD)
+    elif event.keycode == 83 :
+        c.move (pl1, 0, PL_SPD)
+    elif event.keycode == 65 :
+        c.move (pl1, -PL_SPD, 0)  
+    elif event.keycode == 68 :
+        c.move (pl1, PL_SPD, 0)
+    window.update()
+
+c.bind_all ('<Key>', move_players)
+
+def get_coords (id_num) :
+    pos = c.coords(id_num)
+    x = (pos[0] + pos[2]) /2
+    y = (pos[1] + pos[3]) /2
+    return x, y
+
+def distance (id1, id2, id3) :
+    x1, y1 = get_coords (id1)
+    x2, y2 = get_coords (id2)
+    return sqrt ((x2 - x1)**2 + (y2 - y1)**2) - id3
+
+def show_score_1 (points1) :
+    c.itemconfig (score_text_1, text = str(points1))
+def show_score_2 (points2) :
+    c.itemconfig (score_text_2, text = str(points2))
+def show_time (time_left) :
+    c.itemconfig (time_text, text = str(time_left))
+    
+points1 = 0
+points2 = 0
+
+#B_x = c.create_text (50, 50, text ='X', fill='blue')
+#xB_y = c.create_text (10, 50, text ='Y', fill='blue')
+
+while time() < end :    
+    a, b = get_coords (ball)
+    #a1 = a
+    #b1 = b
+    if ((a+r3) >= 800) :
+        if b>=200 and b<=300:
+            points1 += 10
+            c.move (ball, -a+790, 0)
+            window.update() # !!!!!!!!!!!!!!!!!!!!!!!
+            sleep(2)
+            c.move (ball, -390, 250-b)  
+        else:
+            c.move (ball, -r3*4, 0)
+    if ((a-r3) <= 0) :
+        if b>=200 and b<=300:
+            points2 += 10
+            c.move (ball, -a+10, 0)
+            window.update()
+            sleep(2)        
+            c.move (ball, 390, 250-b)        
+        else:
+            c.move (ball, r3*4, 0)
+    if ((b+r3) >= 500) :
+        c.move (ball, 0, -r3*4)
+    if ((b-r3) <= 0) :
+        c.move (ball, 0, r3*4)
+        
+    if distance (pl1, ball, r1+r3) < 0 :
+        x1, y1 = get_coords (pl1)
+        x2, y2 = get_coords (ball)
+        if x1 > x2:
+            if y1 > y2:
+                c.move (ball, -PL_SPD*1.5, -PL_SPD*1.5)
+            if y1 == y2:
+                c.move(ball, -PL_SPD*3, 0)
+            if y1 < y2:
+                c.move (ball, -PL_SPD*1.5, PL_SPD*1.5)
+        if x1 == x2:
+            if y1 > y2:
+                c.move (ball, 0, -PL_SPD*3)
+            if y1 < y2:
+                c.move (ball, 0, PL_SPD*3)
+        if x1 < x2:
+            if y1 > y2:
+                c.move (ball, PL_SPD*1.5, -PL_SPD*1.5)
+            if y1 == y2:
+                c.move(ball, PL_SPD*3, 0)
+            if y1 < y2:
+                c.move (ball, PL_SPD*1.5, PL_SPD*1.5)
+                
+    if distance (pl2, ball, r2+r3) < 0 :
+        x1, y1 = get_coords (pl2)
+        x2, y2 = get_coords (ball)
+        if x1 > x2:
+            if y1 > y2:
+                c.move (ball, -PL_SPD*1.5, -PL_SPD*1.5)
+            if y1 == y2:
+                c.move(ball, -PL_SPD*3, 0)
+            if y1 < y2:
+                c.move (ball, -PL_SPD*1.5, PL_SPD*1.5)
+        if x1 == x2:
+            if y1 > y2:
+                c.move (ball, 0, -PL_SPD*3)
+            if y1 < y2:
+                c.move (ball, 0, PL_SPD*3)
+        if x1 < x2:
+            if y1 > y2:
+                c.move (ball, PL_SPD*1.5, -PL_SPD*1.5)
+            if y1 == y2:
+                c.move(ball, PL_SPD*3, 0)
+            if y1 < y2:
+                c.move (ball, PL_SPD*1.5, PL_SPD*1.5)
+            
+    show_score_1 (points1)
+    show_score_2 (points2)
+    show_time (int(end - time()))
+    window.update()
+    sleep(0.1)
+        
+if time() > end:
+    if points1 > points2:
+        c.create_text (400, 250, text = 'PLAYER_1, YOU ARE WINNER! PLAYER_2, YOU ARE LUSER! ', fill='white')
+    if points1 < points2:
+        c.create_text (400, 250, text = 'PLAYER_2, YOU ARE WINNER! PLAYER_1, YOU ARE LUSER! ', fill='white')
+    if points1 == points2:
+        c.create_text (400, 250, text = 'PLAYER_1, YOU ARE LUSER! PLAYER_2, YOU ARE LUSER! ', fill='white')
+    window.update()
+    c.unbind_all ('Key')
+    sleep(5)
+    window.destroy()
+    
+
